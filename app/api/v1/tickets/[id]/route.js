@@ -22,3 +22,9 @@ export async function PATCH( request, {params}){
 
     return Response.json(tickets[index])
 }
+
+export async function DELETE(_request, { params }){
+    const {id} = await params
+    const newTickets = tickets.filter((ticket) => ticket.id !== id)
+    return Response.json(newTickets)
+}
