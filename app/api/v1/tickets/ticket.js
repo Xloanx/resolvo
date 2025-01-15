@@ -1,4 +1,4 @@
-export const ticket = [
+export const tickets = [
     {
         id: "1",
         status: "OPEN",
