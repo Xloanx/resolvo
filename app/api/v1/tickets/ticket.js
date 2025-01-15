@@ -4,7 +4,8 @@ export const tickets = [
         status: "OPEN",
         title: "Flickering UI",
         description: "Lorem ipsum Flickering UI dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        created: "Fri Sep 04 2023",
+        createdAt: "Fri Sep 04 2023",
+        updatedAt:"",
         ticketer:"user1@example.com"
     },
 
@@ -14,6 +15,7 @@ export const tickets = [
         title: "Password Reset",
         description: "Lorem ipsum Password Reset dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         created: "Mon Oct 24 2023",
+        updatedAt:"",
         ticketer:"user4@example.com"
     },
 
@@ -23,6 +25,7 @@ export const tickets = [
         title: "Broken Search",
         description: "Lorem ipsum Broken Search dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         created: "Sat Oct 26 2023",
+        updatedAt:"",
         ticketer:"user1@example.com"
     },
 
@@ -32,6 +35,7 @@ export const tickets = [
         title: "Authorization Failure",
         description: "Lorem ipsum Authorization Failure dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         created: "Fri Jun 04 2023",
+        updatedAt:"",
         ticketer:"user1@example.com"
     },
 
@@ -41,6 +45,7 @@ export const tickets = [
         title: "Broken Links",
         description: "Lorem ipsum Broken Links dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         created: "Thur May 12 2024",
+        updatedAt:"",
         ticketer:"user2@example.com"
     },
 
@@ -50,6 +55,7 @@ export const tickets = [
         title: "Login Issue",
         description: "Lorem ipsum Login Issue dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         created: "Tue Feb 17 2024",
+        updatedAt:"",
         ticketer:"user6@example.com"
     },
 
@@ -59,6 +65,7 @@ export const tickets = [
         title: "App Crash",
         description: "Lorem ipsum App Crash dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         created: "Fri Feb 27 2024",
+        updatedAt:"",
         ticketer:"user4@example.com"
     },
 
@@ -68,6 +75,7 @@ export const tickets = [
         title: "Broken Checkout",
         description: "Lorem ipsum Broken Checkout dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         created: "Wed Apr 13 2024",
+        updatedAt:"",
         ticketer:"user35@example.com"
     },
 
@@ -77,6 +85,7 @@ export const tickets = [
         title: "Checkout Errors",
         description: "Lorem ipsum Checkout Errors dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         created: "Mon Nov 29 2024",
+        updatedAt:"",
         ticketer:"user103@example.com"
     },
 
@@ -86,6 +95,7 @@ export const tickets = [
         title: "Delayed Email Notifcation",
         description: "Lorem ipsum Delayed Email Notifcation dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         created: "Tue Nov 16 2024",
+        updatedAt:"",
         ticketer:"user15@example.com"
     },
 
@@ -95,6 +105,7 @@ export const tickets = [
         title: "Unavailable Customer Support Chat",
         description: "Lorem ipsum Unavailable Customer Support Chat dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         created: "Mon Dec 19 2024",
+        updatedAt:"",
         ticketer:"user21@example.com"
     },
 
