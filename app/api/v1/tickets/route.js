@@ -5,14 +5,15 @@ export async function GET(){
 }
 
 export async function POST(request){
-    const ticket = request.json();
+    const ticket = await request.json();
     const newTicket ={
         id : tickets.length + 1,
         status: ticket.status,
         title: ticket.title,
         description: ticket.description,
         created: ticket.created,
-        ticketer:ticket.ticketer
+        ticketer:ticket.ticketer,
+        updated:""
     }
     tickets.push(newTicket)
     return new Response(JSON.stringify(newTicket),{
