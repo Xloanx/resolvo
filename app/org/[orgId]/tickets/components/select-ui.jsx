@@ -16,7 +16,7 @@ import {
 
 const SelectUi = () => {
     return (
-        <div className="py-14">
+        <div >
             <Select>
                 <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Ticket Status" />

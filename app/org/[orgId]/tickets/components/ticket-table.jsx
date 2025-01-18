@@ -1,6 +1,7 @@
 import { Badge, badgeVariants } from "@/components/ui/badge";
 import { Badge as RadixUiBadge } from "@radix-ui/themes";
 import SideSheet from "./sideSheet";
+import DrawerOverlay from "./drawer";
 import Link from "next/link";
 import {
     Table,
@@ -38,7 +39,7 @@ const TicketTable = ({tickets}) => {
                 tickets.map((ticket)=>
                     <TableRow key={ticket.id}>
                         <TableCell className="font-medium">{tickets.indexOf(ticket)+1}</TableCell>
-                        <TableCell><Link href=""><SideSheet ticket={ticket}/></Link></TableCell>
+                        <TableCell><DrawerOverlay ticket={ticket}/></TableCell>
                         <TableCell><RadixUiBadge color={statusBadge[ticket.status]}>{ticket.status}</RadixUiBadge></TableCell>
                         <TableCell>{ticket.created}</TableCell>
                         <TableCell>{ticket.ticketer}</TableCell>

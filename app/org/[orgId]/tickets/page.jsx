@@ -5,9 +5,10 @@ import PaginationUI from './components/pagination';
 const TicketHome = () => {
     return (
         <main className='m-16'>
-            <div>
+            <div className="py-14">
                 <SelectUi />
             </div>
+
 
             <div> Ticket Feeds</div>
 
