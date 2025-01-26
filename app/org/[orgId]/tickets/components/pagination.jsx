@@ -11,7 +11,7 @@ import {
   
   const PaginationUI = () => {
     return (
-        <div className="py-8 justify-self-end">
+        <div className="py-8 items-end">
             <Pagination>
                 <PaginationContent>
                     <PaginationItem>

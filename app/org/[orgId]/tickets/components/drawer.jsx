@@ -9,7 +9,7 @@ import SelectUi from "./select-ui"
 // import MultipleSelect from "./multiple-select";
 // import { Minus, Plus } from "lucide-react"
 // import { Bar, BarChart, ResponsiveContainer } from "recharts"
-
+import { MdArchive } from "react-icons/md";
 import { MultiSelect } from "./multi-select"
 
 import {
@@ -73,6 +73,7 @@ const DrawerOverlay = ({ticket}) => {
                         Status
                         </Label>
                         <SelectUi className="col-span-3"/>
+                        <MdArchive />
                 </div>
 
                     <div className="grid grid-cols-4 gap-4">
