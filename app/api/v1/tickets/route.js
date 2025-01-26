@@ -1,4 +1,4 @@
-import { tickets } from './ticket';
+import { tickets } from './ticketsAPI';
 import { NextRequest } from 'next/server';
 import { humanReadableDate } from '@/lib/utils';
 
