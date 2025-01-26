@@ -1,4 +1,4 @@
-import { tickets } from "../ticket";
+import { tickets } from "../ticketsAPI";
 import { humanReadableDate } from "@/lib/utils";
 
 export async function GET(_request, {params}){
