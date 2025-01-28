@@ -5,6 +5,9 @@ const UserSchema = new mongoose.Schema({
         type: String, 
         required: true 
     },
+    username: {
+        type: String
+    },
     email: { 
         type: String, 
         required: true 
@@ -22,6 +25,10 @@ const UserSchema = new mongoose.Schema({
         ref: 'Organization', 
         required: true,
     },
+    department: {
+        type: String,
+        required: true
+    }
     
 });
 

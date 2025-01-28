@@ -22,7 +22,7 @@ const TicketSchema = new mongoose.Schema({
         required: false 
     },
     assignedTo: { 
-        type: Array, 
+        type: [String], 
         required: false 
     },
     ticketer: { 
@@ -30,7 +30,7 @@ const TicketSchema = new mongoose.Schema({
         required: true 
     },
     attachments: { 
-        type: Array, 
+        type: [String], 
         required: false 
     },
     orgId: { 
@@ -38,6 +38,7 @@ const TicketSchema = new mongoose.Schema({
         ref: 'Organization', 
         required: true,
     },
+    remark: String,
 });
 
 export default mongoose.models.Ticket || mongoose.model('Ticket', TicketSchema);
