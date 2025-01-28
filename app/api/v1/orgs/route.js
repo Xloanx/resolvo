@@ -14,7 +14,8 @@ export async function GET(request) {
 
         const filteredOrganizations = query
             ? organizations.filter((organization) =>
-                organization.name.toLowerCase().includes(query.toLowerCase())
+                organization.name.toLowerCase().includes(query.toLowerCase()) ||
+                organization.status.toLowerCase().includes(query.toLowerCase())
               )
             : organizations;
 
@@ -22,14 +23,14 @@ export async function GET(request) {
         const theme = request.cookies.get('theme')?.value || 'default';
         const userId = request.cookies.get('userId')?.value || 'anonymous';
 
-        // Set response headers
-        const headers = new Headers({
+         // Set response headers
+         const headers = new Headers({
             "Content-Type": "application/json",
-            "Set-Cookie": [
-                `theme=${theme}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`,
-                `userId=${userId}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`
-            ].join(", ")
         });
+
+        headers.append("Set-Cookie", `theme=${theme}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`);
+        headers.append("Set-Cookie", `userId=${userId}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`);
+
 
         // Return filtered organizations with headers
         return new Response(JSON.stringify({ success: true, data: filteredOrganizations }), {

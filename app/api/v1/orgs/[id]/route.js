@@ -18,7 +18,7 @@ export async function GET(_request, {params}){
             });
         }
 
-        return new Response(JSON.stringify({ success: true, data: organization }), {
+        return new Response(JSON.stringify({ success: true, organization }), {
             status: 200,
             headers: { "Content-Type": "application/json" },
         });
