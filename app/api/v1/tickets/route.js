@@ -1,53 +1,53 @@
-import { tickets } from './ticketsAPI';
-import { NextRequest } from 'next/server';
-import { humanReadableDate } from '@/lib/utils';
+import { NextRequest, NextResponse } from 'next/server';
+import dbConnect from '@/lib/mongoose';
+import Ticket from "@/models/ticket";
 
-export async function GET(NextRequest){
-    // For URL Query Parameters functionality
-    const searchParams = NextRequest.nextUrl.searchParams;
-    const query = searchParams.get("query");
-    const filteredTickets = query
-    ?tickets.filter((ticket) => ticket.description.includes(query))
-    :tickets
-    const theme = NextRequest.cookies.get('theme')
-    const userId = NextRequest.cookies.get('userId')
-    return new Response(JSON.stringify(filteredTickets),{
-        headers: {
-            "Content-Type": "application/json",
-            "Set-Cookie": `theme=${theme}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`,
-            "Set-Cookie": `userId=${userId}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`,
-        },
-    })
-   
+export async function GET(NextRequest) {
+    await dbConnect();
+
+    try {
+        const tickets = await Ticket.find({});
+
+        // Handle URL query parameters
+        const searchParams = NextRequest.nextUrl.searchParams;
+        const query = searchParams.get("query");
+
+        const filteredTickets = query
+            ? tickets.filter((ticket) =>
+                ticket.description.toLowerCase().includes(query.toLowerCase())
+              )
+            : tickets;
+
+        // Return filtered tickets with headers
+        return new Response(JSON.stringify({ success: true, data: filteredTickets }), {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+        });
+    } catch (error) {
+        return new Response(JSON.stringify({ success: false, error: error.message }), {
+            status: 400,
+            headers: { "Content-Type": "application/json" },
+        });
+    }
 }
 
 export async function POST(request){
-    const ticket = await request.json();
-    const newTicket ={
-        id : tickets.length + 1,
-        status: ticket.status,
-        title: ticket.title,
-        description: ticket.description,
-        createdAt: humanReadableDate(),
-        ticketer:ticket.ticketer,
-        updatedAt:"",
-        assignedTo:[],
+    await dbConnect();
+
+    try {
+        const body = await request.json(); // Parse the request body
+        const ticket = await Ticket.create(body);
+
+        return new Response(JSON.stringify({ success: true, data: ticket }), {
+            status: 201,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (error) {
+        return new Response(JSON.stringify({ success: false, error: error.message }), {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+        });
     }
-    tickets.push(newTicket)
-
-    //cookies
-    const cookies = [
-        "theme=dark; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600",
-        `userId=${newTicket.id}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`,
-      ];
-
-    return new Response(JSON.stringify(newTicket),{
-        headers: {
-            "Content-Type": "application/json",
-            "Set-Cookie":cookies.join(", "), //setting cookies
-        },
-        status: 201,
-    })
 }
 
 
