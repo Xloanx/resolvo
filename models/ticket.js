@@ -14,11 +14,11 @@ const TicketSchema = new mongoose.Schema({
         required: true 
     },
     createdAt: { 
-        type: String, 
+        type: Date, default: Date.now , 
         required: true 
     },
     updatedAt: { 
-        type: String, 
+        type: Date, default: Date.now , 
         required: false 
     },
     assignedTo: { 
