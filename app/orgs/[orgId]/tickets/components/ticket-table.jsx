@@ -1,9 +1,10 @@
 'use client'
 
-import { useTickets } from "@/contexts/tickets/useTickets";
+
 import { Badge as RadixUiBadge } from "@radix-ui/themes";
-import DrawerOverlay from "./drawer";
+import Link from "next/link";
 import { Input } from "@/components/ui/input";
+import { humanReadableDate } from "@/lib/utils";
 
 import {
     Table,
@@ -16,16 +17,16 @@ import {
 
 
   const statusBadge = {
-    OPEN: "red",
-    IN_PROGRESS: "yellow",
-    RESOLVED: "green",
-    CLOSED: "blue",
+    Open: "red",
+    In_progress: "yellow",
+    Resolved: "green",
+    Closed: "blue",
   };
 
 
 
-const TicketTable = () => {
-    const { tickets } = useTickets();
+const TicketTable = ({tickets}) => {
+    // const { tickets } = useTickets();
 
     return (
         <div>
@@ -46,7 +47,7 @@ const TicketTable = () => {
         
         <div className="rounded-md border">
             <Table>
-            <TableHeader>
+            <TableHeader className='bg-gray-200'>
                 <TableRow>
                 <TableHead className="w-[100px]">S/N</TableHead>
                 <TableHead>Title</TableHead>
@@ -58,11 +59,12 @@ const TicketTable = () => {
             <TableBody>
                 {
                     tickets.map((ticket)=>
-                        <TableRow key={ticket.id}>
+                        <TableRow key={ticket._id}>
                             <TableCell className="font-medium">{tickets.indexOf(ticket)+1}</TableCell>
-                            <TableCell><DrawerOverlay ticket={ticket}/></TableCell>
+                            {/* <TableCell><DrawerOverlay ticket={ticket}/></TableCell> */}
+                            <TableCell><Link href={`/orgs/${ticket.orgId}/tickets/${ticket._id}`} target="_blank" rel="noopener noreferrer">{ticket.title}</Link></TableCell>
                             <TableCell><RadixUiBadge color={statusBadge[ticket.status]}>{ticket.status}</RadixUiBadge></TableCell>
-                            <TableCell>{ticket.created}</TableCell>
+                            <TableCell>{humanReadableDate(ticket.createdAt)}</TableCell>
                             <TableCell>{ticket.ticketer}</TableCell>
                         </TableRow>
                     )
