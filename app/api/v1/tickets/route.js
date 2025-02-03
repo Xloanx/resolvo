@@ -2,11 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongoose';
 import Ticket from "@/models/ticket";
 
-export async function GET(NextRequest) {
+export async function GET(NextRequest, {params}) {
+    const {orgId} = params
     await dbConnect();
 
     try {
-        const tickets = await Ticket.find({});
+        const tickets = await Ticket.find({orgId: orgId});
 
         // Handle URL query parameters
         const searchParams = NextRequest.nextUrl.searchParams;
@@ -35,8 +36,39 @@ export async function POST(request){
     await dbConnect();
 
     try {
-        const body = await request.json(); // Parse the request body
-        const ticket = await Ticket.create(body);
+        // Parse FormData from the request
+        const formData = await request.formData();
+        const title = formData.get("title");
+        const description = formData.get("description");
+        const ticketer = formData.get("ticketer");
+        const orgId = formData.get("orgId");
+        // const attachments = formData.getAll("attachments");
+
+        // Validate required fields
+        if (!title || !description || !ticketer || !orgId) {
+            return new Response(JSON.stringify({ success: false, error: "Missing required fields" }), {
+                status: 400,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+
+        // Handle file uploads (if applicable)
+        // const uploadedFiles = [];
+        // for (const file of attachments) {
+        //     const buffer = await file.arrayBuffer();
+        //     const filename = `${Date.now()}-${file.name}`;
+        //     // Save the file (e.g., to local storage, AWS S3, etc.)
+        //     uploadedFiles.push({ filename, buffer });
+        // }
+        
+        // Create the ticket in the database
+        const ticket = await Ticket.create({
+            title,
+            description,
+            ticketer,
+            orgId,
+            // attachments: uploadedFiles, // Adjust schema as needed
+        });
 
         return new Response(JSON.stringify({ success: true, data: ticket }), {
             status: 201,
