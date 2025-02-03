@@ -1,13 +1,17 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 // import { Theme } from "@radix-ui/themes";
 import TicketProvider from "@/contexts/tickets/ticketProvider";
 import TicketFetcher from "@/components/customs/ticketFetcher";
-
-
-        
-import {NavMenu} from "./nav-menu";
+import {NavMenu} from "../nav-menu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,14 +34,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <TicketProvider>
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <TicketFetcher /> {/* Fetch tickets from DB and update context*/}
-          <NavMenu />
-          {children}
-        </body>
-      </TicketProvider>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+          <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <NavMenu />
+            {children}
+          </body>
+
+      </html>
+    </ClerkProvider>
   );
 }
