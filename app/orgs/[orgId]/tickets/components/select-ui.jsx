@@ -14,19 +14,19 @@ import {
     "CLOSED": "blue",
   };
 
-const SelectUi = () => {
+const SelectUi = ({value, onChange}) => {
     return (
         <div >
-            <Select>
+            <Select value={value} onValueChange={onChange}>
                 <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Ticket Status" />
                 </SelectTrigger>
                 <SelectContent>
                     <SelectItem value="all"><RadixUiBadge color="black">ALL TICKETS</RadixUiBadge></SelectItem>
-                    <SelectItem value="open"><RadixUiBadge color={statusBadge["OPEN"]}>OPEN</RadixUiBadge></SelectItem>
-                    <SelectItem value="in_progress"><RadixUiBadge color={statusBadge["IN_PROGRESS"]}>IN PROGRESS</RadixUiBadge></SelectItem>
-                    <SelectItem value="resolved"><RadixUiBadge color={statusBadge["RESOLVED"]}>RESOLVED</RadixUiBadge></SelectItem>
-                    <SelectItem value="closed"><RadixUiBadge color={statusBadge["CLOSED"]}>CLOSED</RadixUiBadge></SelectItem>
+                    <SelectItem value="Open"><RadixUiBadge color={statusBadge["OPEN"]}>OPEN</RadixUiBadge></SelectItem>
+                    <SelectItem value="In_progress"><RadixUiBadge color={statusBadge["IN_PROGRESS"]}>IN PROGRESS</RadixUiBadge></SelectItem>
+                    <SelectItem value="Resolved"><RadixUiBadge color={statusBadge["RESOLVED"]}>RESOLVED</RadixUiBadge></SelectItem>
+                    <SelectItem value="Closed"><RadixUiBadge color={statusBadge["CLOSED"]}>CLOSED</RadixUiBadge></SelectItem>
                 </SelectContent>
             </Select>
         </div>
