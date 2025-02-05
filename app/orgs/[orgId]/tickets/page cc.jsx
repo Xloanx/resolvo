@@ -4,7 +4,7 @@ import TicketTable from './components/ticket-table';
 import PaginationUI from './components/pagination';
 import { buttonVariants } from "@/components/ui/button"
 import Link from 'next/link';
-import { getTickets } from "@/app/orgs/server-utils/db-interact";
+import { getTickets } from "@/server-utils/db-interact";
 
 
 const TicketHome = async ({params}) => {

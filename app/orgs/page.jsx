@@ -11,7 +11,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { getOrganizations } from "@/app/orgs/server-utils/db-interact";
+import { getOrganizations } from "@/server-utils/db-interact";
 import PaginationUI from './[orgId]/tickets/components/pagination';
 import TableActions from './[orgId]/tickets/components/table-actions';
 

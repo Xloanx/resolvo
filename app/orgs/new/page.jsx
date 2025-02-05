@@ -1,21 +1,18 @@
 'use client'
 import { useRouter } from "next/navigation";
 import SubmitButton from "../[orgId]/tickets/components/submit-button";
-import { addTicket } from '@/actions/tickets';
-import { use, useEffect, useActionState } from "react";
+import { addOrganization } from "@/actions/organization";
+import { useEffect, useActionState } from "react";
 import { Button } from "@/components/ui/button";
-import { MdDelete, MdAutoDelete } from "react-icons/md";
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import {
 Card,
 CardContent,
 CardDescription,
-CardFooter,
 CardHeader,
 CardTitle,
 } from "@/components/ui/card"
-import { addOrganization } from "@/actions/organization";
-
+import SignUpProgress from "@/components/customs/sign-up-progress";
 
 
 
@@ -32,8 +29,6 @@ const NewOrgUI = () => {
  
 
     const [state, formAction] = useActionState(addOrganization, initialState);
-
-
 
     // Trigger toast notification when state changes
     useEffect(() => {
@@ -63,25 +58,22 @@ const NewOrgUI = () => {
                         });
         }
     }, [state]);
-
     
     return ( 
         <>
-            <div className="grid grid-rows-[20px_1fr_20px] items-center 
-                            justify-items-center min-h-screen p-8 pb-10 
-                            gap-16 sm:p-10 font-[family-name:var(--font-geist-sans)]">
-                <main className="flex flex-col gap-8 row-start-2 items-start sm:items-start">
-                    <Card className="w-[550px]">
+            <SignUpProgress progress={45}/>
+                    <Card className="w-[400px]">
                 <CardHeader>
                     <CardTitle>Create Organization</CardTitle>
                     <CardDescription>Create your Organization here. Click submit when you're done.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                <form action={formAction} className="space-y-8">
+                    <p className="text-xs">* - Required Fields </p>
+                <form action={formAction} className="space-y-">
 
-                    <div className="grid grid-cols-4 items-center gap-4">
+                    <div className="grid grid-cols-4 items-center gap-4 text-sm">
                         <label className=" text-right">
-                            Name of Organization
+                            Name*
                         </label>
                         <input
                             type="text"
@@ -90,33 +82,33 @@ const NewOrgUI = () => {
                             placeholder="The Full Name of your Organization"
                         />
                         <div></div>
-                        {state?.org_name && (
-                            <p className="text-red-500 col-span-3 text-left">{state.org_name}</p>
+                        {state?.name && (
+                            <p className="text-red-500 col-span-3 text-left">{state.name}</p>
                         )}
                         
                     </div>
 
 
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <label className=" text-right">
-                            Organization Support Email
+                    <div className="grid grid-cols-4 items-center gap-4 text-sm">
+                        <label className=" text-right ">
+                            Email*
                         </label>
                         <input
                             type="text"
                             className="block w-full p-2 text-black border rounded col-span-3"
                             name="org_email"
-                            placeholder="An email address for support."
+                            placeholder="Organization email address for support."
                         />
                         <div></div>
-                        {state?.org_email && (
-                            <p className="text-red-500 col-span-3 text-left">{state.org_email}</p>
+                        {state?.email && (
+                            <p className="text-red-500 col-span-3 text-left">{state.email}</p>
                         )}
                         
                     </div>
                     
-                    <div className="grid grid-cols-4 items-center gap-4">
+                    <div className="grid grid-cols-4 items-center gap-4 text-sm">
                         <label className=" text-right">
-                            Primary Phone Number
+                            Phone*
                         </label>
                         <input
                             type="text"
@@ -125,29 +117,29 @@ const NewOrgUI = () => {
                             placeholder="Your Primary Phone Number"
                         />
                         <div></div>
-                        {state?.org_phone1 && (
-                            <p className="text-red-500 col-span-3 text-left">{state.org_phone1}</p>
+                        {state?.phone1 && (
+                            <p className="text-red-500 col-span-3 text-left">{state.phone1}</p>
                         )}
                     </div>
 
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <label className=" text-right">
-                            Secondary Phone Number
+                    <div className="grid grid-cols-4 items-center gap-4 text-sm">
+                        <label className=" text-right ">
+                            Phone
                         </label>
                         <input
                             type="text"
-                            className="block w-full p-2 text-black border rounded col-span-3"
+                            className="block w-full p-2 text-black border rounded col-span-3 "
                             name="org_phone2"
-                            placeholder="Alternative Phone Number"
+                            placeholder="Alternative Phone Number (Optional)"
                         />
                         <div></div>
-                        {state?.org_phone2 && (
-                            <p className="text-red-500 col-span-3 text-left">{state.org_phone2}</p>
+                        {state?.phone2 && (
+                            <p className="text-red-500 col-span-3 text-left ">{state.phone2}</p>
                         )}
                     </div>
 
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <label className="text-right">
+                    <div className="grid grid-cols-4 items-center gap-4 text-sm">
+                        <label className="text-right ">
                             Address
                         </label>
                         <textarea
@@ -163,14 +155,9 @@ const NewOrgUI = () => {
                         )}
                     </div>
 
-                    
-
-                   
-
-
                     <SubmitButton />
 
-                    <div className="grid grid-cols-4 items-center gap-4">
+                    <div className="grid grid-cols-4 items-center gap-4 mt-2">
                         <div className="col-span-2" >
                             <Button variant="outline" onClick={() => router.back()} >Back</Button>
                         </div>
@@ -179,13 +166,8 @@ const NewOrgUI = () => {
                         </div>
                     </div>
                 </form>
-
-                
-                </CardContent>
+            </CardContent>
                     </Card>
-                </main>   
-            </div>
-            <ToastContainer />
         </>
     );
 }

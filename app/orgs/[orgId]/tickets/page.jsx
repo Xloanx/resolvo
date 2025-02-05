@@ -3,7 +3,7 @@ import SelectUi from './components/select-ui';
 import PaginationUI from './components/pagination';
 import { buttonVariants } from "@/components/ui/button"
 import Link from 'next/link';
-import { getTickets } from "@/app/orgs/server-utils/db-interact";
+import { getTickets } from "@/server-utils/db-interact";
 import TicketTable from './components/ticket-table';
 
 

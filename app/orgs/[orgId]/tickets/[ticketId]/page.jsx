@@ -1,4 +1,4 @@
-import { getTicket } from "@/app/orgs/server-utils/db-interact";
+import { getTicket } from "@/server-utils/db-interact";
 import TicketReviewForm from "./ticket-review-form";
 
 const agents = [

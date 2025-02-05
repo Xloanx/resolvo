@@ -1,92 +1,92 @@
 [
     {
-      "id": 1,
       "name": "Leanne Graham",
       "username": "Bret",
-      "email": "Sincere@april.biz",
+      "email": "agent1@example.com",
       "phone": "1-770-736-8031 x56442",
       "thumbnail":"https://via.placeholder.com/150/9c184f",
-      "orgId": 8,
+      "orgId": "6796cd2c21321d831acd7b83",
+      "department":"training"
     },
     {
-      "id": 2,
       "name": "Ervin Howell",
       "username": "Antonette",
-      "email": "Shanna@melissa.tv",
+      "email": "agent2@example.com",
       "phone": "010-692-6593 x09125",
       "thumbnail":"https://via.placeholder.com/150/b0f7cc",
-      "orgId": 6
+      "orgId": "6796d35021321d831acd7b93",
+      "department":"training"
     },
     {
-      "id": 3,
       "name": "Clementine Bauch",
       "username": "Samantha",
-      "email": "Nathan@yesenia.net",
+      "email": "agent3@example.com",
       "phone": "1-463-123-4447",
       "thumbnail":"https://via.placeholder.com/150/659403",
-      "orgId": 14,
+      "orgId": "6796d35021321d831acd7b93",
+      "department":"training"
     },
     {
-      "id": 4,
       "name": "Patricia Lebsack",
       "username": "Karianne",
-      "email": "Julianne.OConner@kory.org",
+      "email": "agent4@example.com",
       "phone": "493-170-9623 x156",
       "thumbnail":	"https://via.placeholder.com/150/a46a91",
-      "orgId": 1
+      "orgId": "6796d32f21321d831acd7b8f",
+      "department":"finance"
     },
     {
-      "id": 5,
       "name": "Chelsey Dietrich",
       "username": "Kamren",
-      "email": "Lucio_Hettinger@annie.ca",
+      "email": "agent5@example.com",
       "phone": "(254)954-1289",
       "thumbnail":"https://via.placeholder.com/150/68e0a8",
-      "orgId": 2
+      "orgId": "6796cd2c21321d831acd7b83",
+      "department":"revenue"
     },
     {
-      "id": 6,
       "name": "Mrs. Dennis Schulist",
       "username": "Leopoldo_Corkery",
-      "email": "Karley_Dach@jasper.info",
+      "email": "agent6@example.com",
       "phone": "1-477-935-8478 x6430",
       "thumbnail":"https://via.placeholder.com/150/21d35",
-      "orgId": 3
+      "orgId": "6796cee721321d831acd7b89",
+      "department":"support"
     },
     {
-      "id": 7,
       "name": "Kurtis Weissnat",
       "username": "Elwyn.Skiles",
-      "email": "Telly.Hoeger@billy.biz",
+      "email": "agent7@example.com",
       "phone": "210.067.6132",
       "thumbnail":"https://via.placeholder.com/150/1fb08b",
-      "orgId": 10
+      "orgId": "6796cee721321d831acd7b89",
+      "department":"support"
     },
     {
-      "id": 8,
       "name": "Nicholas Runolfsdottir V",
       "username": "Maxime_Nienow",
-      "email": "Sherwood@rosamond.me",
+      "email": "agent8@example.com",
       "phone": "586.493.6943 x140",
       "thumbnail":"https://via.placeholder.com/150/35cedf",
-      "orgId": 14
+      "orgId": "6796d31d21321d831acd7b8d",
+      "department":"tax"
     },
     {
-      "id": 9,
       "name": "Glenna Reichert",
       "username": "Delphine",
-      "email": "Chaim_McDermott@dana.io",
+      "email": "agent9@example.com",
       "phone": "(775)976-6794 x41206",
       "thumbnail":	"https://via.placeholder.com/150/b04f2e",
-      "orgId": 2
+      "orgId": "6796d31d21321d831acd7b8d",
+      "department":"tax"
     },
     {
-      "id": 10,
       "name": "Clementina DuBuque",
       "username": "Moriah.Stanton",
-      "email": "Rey.Padberg@karina.biz",
+      "email": "agent10@example.com",
       "phone": "024-648-3804",
       "thumbnail":"https://via.placeholder.com/150/92c952",
-      "orgId": 11
+      "orgId": "6796d31d21321d831acd7b8d",
+      "department":"IT" 
     }
   ]
