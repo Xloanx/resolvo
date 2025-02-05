@@ -8,10 +8,8 @@ import {
 } from '@clerk/nextjs'
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
-// import { Theme } from "@radix-ui/themes";
-import TicketProvider from "@/contexts/tickets/ticketProvider";
-import TicketFetcher from "@/components/customs/ticketFetcher";
-import {NavMenu} from "../nav-menu";
+
+import NavMenu from "../nav-menu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,14 +32,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
       <html lang="en">
           <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
             <NavMenu />
-            {children}
+            <main className="flex h-screen flex-col items-center justify-center 
+                      font-[family-name:var(--font-geist-sans)]
+                      bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
+                      from-sky-400 to-blue-800">
+              {children}
+            </main>
           </body>
-
       </html>
-    </ClerkProvider>
-  );
+  )
 }
