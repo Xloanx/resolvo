@@ -5,9 +5,7 @@ const UserSchema = new mongoose.Schema({
         type: String, 
         required: true 
     },
-    username: {
-        type: String
-    },
+
     email: { 
         type: String, 
         required: true 
@@ -16,17 +14,23 @@ const UserSchema = new mongoose.Schema({
         type: String, 
         required: true 
     },
+    password: {
+        type: String,
+        required: true
+    },
     thumbnail: { 
+        type: String
+    },
+    role: { 
         type: String, 
-        required: false 
+        required: true
     },
     orgId: { 
         type: [mongoose.Schema.Types.ObjectId], 
         ref: 'Organization', 
     },
     department: {
-        type: String,
-        required: true
+        type: String
     }
     
 });
