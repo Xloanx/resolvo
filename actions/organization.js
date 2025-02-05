@@ -1,15 +1,21 @@
 "use server";
-import { createOrganization, updateOrganizationStatus } from "@/app/orgs/server-utils/db-interact";
+import { createOrganization, updateOrganizationStatus, getOrganization } from "@/server-utils/db-interact";
 import { redirect } from "next/navigation"
 import { auth } from "@clerk/nextjs/server";
 
 
+export async function fetchOrganization(orgId){
+    const _id = orgId;
+    console.log(await getOrganization(orgId))
+    // const res = await getOrganization(orgId)
+    // return res ? { success: true, res } : { success: false };
+}
 
 
-export async function addOrganization(adminId, prevState, formData) {
-
+export async function addOrganization(prevState, formData) {
+    
     //get values
-    const { userId: admin } = auth();
+    const admin = "6798a0ac19338dd06de20419"; //to be picked after auth 
     const name = formData.get('org_name');
     const email = formData.get('org_email');
     const phone1 = formData.get('org_phone1');
@@ -33,6 +39,8 @@ export async function addOrganization(adminId, prevState, formData) {
     if (Object.keys(errors).length > 0) {
         return errors;
     }
+
+    console.log(admin)
     
     //if validation passes, create organization
     const res = await createOrganization(name, email, phone1, phone2, address, admin);

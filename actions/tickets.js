@@ -1,5 +1,5 @@
 "use server";
-import { createTicket, updateTicket } from "@/app/orgs/server-utils/db-interact";
+import { createTicket, updateTicket } from "@/server-utils/db-interact";
 import { redirect } from "next/navigation"
 
 
